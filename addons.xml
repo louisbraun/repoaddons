@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <addon id="skin.unfussy" version="0.1.1" name="Unfussy" provider-name="Louis">
+        <requires>
+            <import addon="xbmc.gui" version="5.14.0"/>
+            <import addon="script.unfussy.helper" version="0.1.1"/>
+        </requires>
+        <extension point="xbmc.gui.skin" debugging="false">
+            <res width="1920" height="1440" aspect="4:3" default="false" folder="xml" />
+            <res width="1920" height="1280" aspect="3:2" default="false" folder="xml" />
+            <res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
+            <res width="2040" height="1080" aspect="17:9" default="false" folder="xml" />
+            <res width="1920" height="1080" aspect="16:9" default="true" folder="xml" />
+            <res width="2560" height="1080" aspect="21:9" default="false" folder="xml" />
+            <res width="2338" height="1080" aspect="19.5:9" default="false" folder="xml" />
+            <res width="2160" height="1080" aspect="18:9" default="false" folder="xml" />
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="de_DE">Unfussy Skin by Louis 2019</summary>
+            <summary lang="en_GB">unfussy skin by Louis 2019</summary>
+            <description lang="de_DE">Ein "schnörkelloser" Skin, insbesondere auf die Benutzung von LiveTV ausgelegt. Features: Konfigurierbares Menü, große Anzahl kofigurierbarer Widgets im Hauptmenü, PVR Guide mit 4 - 10 Sendern, angepasste PVR Views und vieles mehr...</description>
+            <description lang="en_GB">An "unfussy" skin, in particular designed for watching LiveTV. Features: customizable menu, large number of configurable main menu widgets, pvr guide with 4 up to 10 channels, customized pvr views and much more...</description>
+            <platform>all</platform>
+            <license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
+            <source>https://github.com/louisbraun/skin.unfussy</source>
+            <email>louis.braun@gmx.de</email>
+            <assets>
+                <icon>resources/icon.png</icon>
+                <fanart>resources/icon.png</fanart>
+                <screenshot>resources/home.png</screenshot>
+                <screenshot>resources/movies_fanart.png</screenshot>
+                <screenshot>resources/tvshows_fanart_hor.png</screenshot>
+                <screenshot>resources/tvshows_episodes_list.png</screenshot>
+                <screenshot>resources/music_artists_infowall.png</screenshot>
+                <screenshot>resources/music_albums_list.png</screenshot>
+                <screenshot>resources/pvr_channelguide.png</screenshot>
+                <screenshot>resources/pvr_channellist_wall.png</screenshot>
+                <screenshot>resources/pvr_guide.png</screenshot>
+                <screenshot>resources/pvr_info.png</screenshot>
+                <screenshot>resources/pvr_osd.png</screenshot>
+            </assets>
+        </extension>
+    </addon>
+    <addon id="script.unfussy.helper" name="Unfussy Helper" version="0.1.1" provider-name="louis">
+        <requires>
+            <import addon="xbmc.python" version="2.25.0"/>
+        </requires>
+        <extension point="xbmc.python.script" library="default.py" />
+        <extension point="xbmc.python.pluginsource" library="plugin.py" />
+        <extension point="xbmc.service" library="service.py" start="login" />
+        <extension point="kodi.context.item">
+            <menu id="kodi.core.main">
+                <item library="contextitem.py">
+                <label>30273</label>
+                <visible>
+                      !String.IsEmpty(ListItem.FolderPath) 
+                    + String.StartsWith(ListItem.FolderPath,plugin)
+                    + String.IsEmpty(ListItem.Duration)
+                    + !String.IsEqual(ListItem.Label,..)
+                </visible>
+                </item>
+            </menu>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en">Unfussy Helper Script</summary>
+            <description lang="en">Helper script to provide features and functions to the Unfussy skin</description>
+            <platform>all</platform>
+            <license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
+            <source>https://github.com/louisbraun/script.unfussy.helper</source>
+            <email>louis.braun@gmx.de</email>
+            <assets>
+                <icon>resources/icon.png</icon>
+                <fanart>resources/icon.png</fanart>
+            </assets>
+        </extension>
+    </addon>
+</addons>
