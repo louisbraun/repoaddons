@@ -75,7 +75,7 @@
             </assets>
         </extension>
     </addon>
-    <addon id="skin.estouchy_radiomod" version="2.0.28" name="Estouchy Radio Mod" provider-name="Team Kodi, Louis">
+    <addon id="skin.estouchy_radiomod" version="2.0.29" name="Estouchy Radio Mod" provider-name="Team Kodi, Louis">
         <requires>
             <import addon="xbmc.gui" version="5.14.0"/>
         </requires>
